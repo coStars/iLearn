@@ -2,13 +2,12 @@ import React from 'react'
 import {render} from 'react-dom'
 import BookList from './BookList.js'
 
-const BookContentPage = (props) => {
-  return (
+const BookContentPage = (props) => (
     <div>
     <h1>ILearn</h1>
     <BookList bookList={props.bookList} />
-  </div>)
-}
+  </div>
+)
 class Main extends React.Component {
   render () {
     const bookList = [{

@@ -1,15 +1,15 @@
 module.exports = {
   entry : {
-    bundle : ['./assets/javascript/index.js']
+    bundle : ['./src/index.js']
   },
   output : {
-    path : __dirname + '/assets',
+    path : __dirname + '/public/js',
     filename : '[name].js',
-    publicPath : 'assets'
+    publicPath : 'public'
   },
   devServer : {
     inline : true,
-    contentBase : './assets',
+    contentBase : './public',
     port : 8888
 
   },
@@ -21,5 +21,6 @@ module.exports = {
 
       }
     ]
-  },
+ }
+
 }
