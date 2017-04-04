@@ -4,7 +4,7 @@ React-example
 ```js
 npm start
 ```
-with
+
 ### To run the project in webpack server (http://localhost:8888) just type:
 ```js
 npm run startweb
