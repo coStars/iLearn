@@ -31,7 +31,7 @@ class BookList extends React.Component {
   addTechIfValid () {
     this.state.bookTECH.length && this.state.bookDOCS.length
     ? this.addBook()
-    : console.log('Bad data')
+    : console.log('You must insert data')
   }
   changeTECH (ev) {
     this.setState({

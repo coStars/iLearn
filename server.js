@@ -3,6 +3,7 @@
 const Hapi = require('hapi')
 const inert = require('inert')
 const vision = require('vision')
+const handlebars = require('handlebars');
 
 const server = new Hapi.Server()
 server.connection({
@@ -16,7 +17,7 @@ server.register([vision, inert], (err) => {
     method: 'GET',
     path: '/',
     handler: (request, reply) => {
-      reply.file('assets/html/index.html')
+      reply.view('index')
       // reply('index.html')
     }
   })
@@ -32,6 +33,12 @@ server.register([vision, inert], (err) => {
     }
 )
 })
+server.views({
+        engines: {
+            html: handlebars
+        },
+        path: 'assets',
+});
 server.start((err) => {
   if (err) {
     throw err
