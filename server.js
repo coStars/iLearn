@@ -24,10 +24,10 @@ server.register([vision, inert], (err) => {
   server.route(
     {
       method: 'GET',
-      path: '/assets/{file*}',
+      path: '/public/{file*}',
       handler: {
         directory: {
-          path: 'assets'
+          path: 'public'
         }
       }
     }
@@ -37,7 +37,7 @@ server.views({
         engines: {
             html: handlebars
         },
-        path: 'assets',
+        path: 'public',
 });
 server.start((err) => {
   if (err) {
