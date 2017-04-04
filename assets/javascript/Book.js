@@ -12,7 +12,7 @@ const Book = (props) => (
       <button
         type='button'
         className='close'
-        onClick={ () => props.onRemove(props.tech).bind(this)}
+        onClick={ () => props.onRemove(props.tech)}
       >
         <span>&times;</span>
       </button>
