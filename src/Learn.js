@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
-const Book = (props) => (
+const Learn = (props) => (
   <tr>
     <td>
       {props.tech}
@@ -12,11 +12,11 @@ const Book = (props) => (
       <button
         type='button'
         className='close'
-        onClick={ () => props.onRemove(props.tech)}
+        onClick={ _ => props.onRemove(props.tech)}
       >
         <span>&times;</span>
       </button>
     </td>
   </tr>
 )
-export default Book
+export default Learn

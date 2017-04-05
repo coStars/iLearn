@@ -1,12 +1,13 @@
 import React from 'react'
-import Book  from './Book.js'
-class BookList extends React.Component {
+import Learn  from './Learn.js'
+
+class LearnList extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      bookList: props.bookList,
-      bookTECH: '',
-      bookDOCS: '',
+      LearnList: [],
+      TECH: '',
+      DOCS: '',
       buttonStyle: {
         validStyle: {
           backgroundColor: 'green',
@@ -29,57 +30,59 @@ class BookList extends React.Component {
     }
   }
   addTechIfValid () {
-    this.state.bookTECH.length && this.state.bookDOCS.length
-    ? this.addBook()
+    this.state.TECH.length && this.state.DOCS.length
+    ? this.addLearn()
     : console.log('You must insert data')
   }
   changeTECH (ev) {
     this.setState({
-      bookTECH: ev.target.value
+      TECH: ev.target.value
     })
   }
   changeDOCS (ev) {
     this.setState({
-      bookDOCS: ev.target.value
+      DOCS: ev.target.value
     })
   }
-  addBook () {
-    this.state.bookList.push({
-      tech: this.state.bookTECH,
-      docs: <a target="_blank" href={this.state.bookDOCS}>{this.state.bookDOCS}</a>
+  addLearn () {
+    this.state.LearnList.push({
+      tech: this.state.TECH,
+      docs: <a target="_blank" href={this.state.DOCS}>{this.state.DOCS}</a>
     })
 
     this.setState({
-      bookList: this.state.bookList,
-      bookTECH: '',
-      bookDOCS: ''
+      LearnList: this.state.LearnList,
+      TECH: '',
+      DOCS: ''
     })
   }
-  removeBOOK (tech) {
+  removeTeching (tech) {
     this.setState({
-      bookList: this.state.bookList.filter(function (book) {
-        return book.tech !== tech
+      LearnList: this.state.LearnList.filter(function (link) {
+        return link.tech !== tech
       })
     })
   }
 
   render () {
-    const books = this.state.bookList.map(function (book) {
+    const knowledge = this.state.LearnList.map(function (link) {
       return (
-        <Book
-          tech={book.tech}
-          key={book.tech}
-          onRemove={this.removeBOOK.bind(this)}>
-            {book.docs}
-        </Book>
+        <Learn
+          tech={link.tech}
+          key={link.tech}
+          onRemove={this.removeTeching.bind(this)}>
+            {link.docs}
+        </Learn>
       )
     }, this)
 
-    const buttonStyle = this.state.bookTECH.length && this.state.bookDOCS.length
-    ? this.state.buttonStyle.validStyle : this.state.buttonStyle.invalidStyle
+    const buttonStyle = this.state.TECH.length && this.state.DOCS.length
+    ? this.state.buttonStyle.validStyle
+    : this.state.buttonStyle.invalidStyle
 
-    const inputStyle = this.state.bookTECH.length && this.state.bookDOCS.length
-    ? this.state.inputStyle.validStyle : this.state.inputStyle.invalidStyle
+    const inputStyle = this.state.TECH.length && this.state.DOCS.length
+    ? this.state.inputStyle.validStyle
+    : this.state.inputStyle.invalidStyle
 
     return (
       <div>
@@ -87,7 +90,7 @@ class BookList extends React.Component {
           <div className='form-group'>
             <label>TECH</label>
             <input
-              value={this.state.bookTECH}
+              value={this.state.TECH}
               onChange={this.changeTECH.bind(this)}
               placeholder='teching'
               type='text'
@@ -99,7 +102,7 @@ class BookList extends React.Component {
           <div className='form-group'>
             <label>DOCS</label>
             <input
-              value={this.state.bookDOCS}
+              value={this.state.DOCS}
               onChange={this.changeDOCS.bind(this)}
               placeholder='link'
               type='text'
@@ -127,7 +130,7 @@ class BookList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {books}
+            {knowledge}
           </tbody>
         </table>
       </div>
@@ -135,16 +138,16 @@ class BookList extends React.Component {
   }
 }
 
-BookList.defaultProps = {
+LearnList.defaultProps = {
   value: 'default'
 }
 
-BookList.propTypes = {
-  bookTECH: React.PropTypes.string,
-  bookDOCS: React.PropTypes.string,
+LearnList.propTypes = {
+  TECH: React.PropTypes.string,
+  DOCS: React.PropTypes.string,
   value: React.PropTypes.string.isRequired,
   onClick: React.PropTypes.func,
   onChange: React.PropTypes.func
 }
 
-export default BookList
+export default LearnList
