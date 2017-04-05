@@ -1,4 +1,6 @@
+import React from 'react'
 import Learn  from './Learn.js';
+
 const LearnTable = (props)=>(
     <table className='table table-condensed'>
       <thead>
