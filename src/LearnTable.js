@@ -1,5 +1,9 @@
 import React from 'react'
 import Learn  from './Learn.js';
+const data = {
+  tech : 'alaa',
+  docs : 'ghada'
+}
 
 const LearnTable = (props)=>(
     <table className='table table-condensed'>
@@ -11,7 +15,7 @@ const LearnTable = (props)=>(
         </tr>
       </thead>
       <tbody>
-        <Learn tech={"alaa"}/>
+        <Learn  docs = {data.docs} tech = {data.tech}/>
       </tbody>
     </table>
 )

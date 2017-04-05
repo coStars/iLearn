@@ -1,12 +1,13 @@
 import React from 'react'
 import {render} from 'react-dom'
 const Learn = (props) => (
+
   <tr>
     <td>
       {props.tech}
     </td>
     <td>
-      {props.children}
+      {props.docs}
     </td>
     <td>
       <button

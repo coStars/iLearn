@@ -40,18 +40,6 @@ const LearnForm = (props)=>(
         </button>
       </div>
     </div>
-    <table className='table table-condensed'>
-      <thead>
-        <tr>
-           <th>TECH</th>
-           <th>DOCS</th>
-           <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {/*knowledge*/}
-      </tbody>
-    </table>
   </div>
 )
 export default LearnForm
