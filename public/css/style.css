@@ -1,0 +1,43 @@
+/*.form-group{
+  padding: 10px;
+  border: solid 1px #fff;
+  box-shadow: inset 1px 1px 2px 0 #707070;
+  transition: box-shadow 0.3s;
+}*/
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+      text-align: center;
+}
+tr:nth-child(even) {background-color: #f2f2f2}
+
+input {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.btn-default {
+  border-radius: 8px;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+label {
+  color: blue;
+  font-size: 16px;
+}

@@ -1,11 +1,9 @@
 import React from 'react'
 import Learn  from './Learn.js';
-const data = {
-  tech : 'alaa',
-  docs : 'ghada'
-}
-
-const LearnTable = (props)=>(
+import '../public/css/style.css'
+const LearnTable = (props)=>{
+  console.log(props.learnList.length)
+return(
     <table className='table table-condensed'>
       <thead>
         <tr>
@@ -14,9 +12,12 @@ const LearnTable = (props)=>(
            <th></th>
         </tr>
       </thead>
-      <tbody>
-        <Learn  docs = {data.docs} tech = {data.tech}/>
-      </tbody>
+        <Learn
+        key={props.learnList.length}
+        learnList = {props.learnList}
+        onRemove = {props.onRemove}
+        />
     </table>
 )
+}
 export default LearnTable

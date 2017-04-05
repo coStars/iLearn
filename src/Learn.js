@@ -1,23 +1,31 @@
 import React from 'react'
 import {render} from 'react-dom'
-const Learn = (props) => (
-
+const Learn = (props) =>{
+  const knowledge = props.learnList.map(function (link) {
+  return(
   <tr>
     <td>
-      {props.tech}
+      {link.tech}
     </td>
     <td>
-      {props.docs}
+      {link.docs}
     </td>
     <td>
       <button
         type='button'
         className='close'
-        onClick={ _ => props.onRemove(props.tech)}
+        onClick={ _ => props.onRemove(link.tech)}
       >
         <span>&times;</span>
       </button>
     </td>
   </tr>
 )
+})
+return (
+  <tbody>
+  {knowledge}
+  </tbody>
+)
+}
 export default Learn
