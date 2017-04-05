@@ -1,3 +1,8 @@
+import React from 'react'
+
+const inputStyle = {}
+const buttonStyle = {}
+
 const LearnForm = (props)=>(
   <div>
     <div>
@@ -44,7 +49,7 @@ const LearnForm = (props)=>(
         </tr>
       </thead>
       <tbody>
-        {knowledge}
+        {/*knowledge*/}
       </tbody>
     </table>
   </div>
