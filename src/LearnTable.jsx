@@ -1,7 +1,6 @@
 import React from 'react'
 import LearnList  from './LearnList.jsx';
 const LearnTable = (props)=>{
-  console.log(props.learnList.length)
 return(
     <table className='table table-condensed'>
       <thead>
