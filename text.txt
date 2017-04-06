@@ -1,2 +1,0 @@
-sudo apt install git-cola
-git-cola
