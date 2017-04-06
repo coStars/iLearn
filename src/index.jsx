@@ -1,90 +1,30 @@
+import Main from './Main.jsx'
 import React from 'react'
 import {render} from 'react-dom'
- import LearnTable from './LearnTable.js'
- import LearnForm from './LearnForm.js'
-class Main extends React.Component {
-  constructor (props) {
-  super(props)
-  this.state = {
-    learnList: [],
-    TECH: '',
-    DOCS: '',
-    buttonStyle: {
-      validStyle: {
-        backgroundColor: 'green',
-        color: 'white'
-      },
-      invalidStyle: {
-        backgroundColor: 'red',
-        color: 'white',
-        borderColor: 'red'
-      }
-    },
-    inputStyle: {
-      validStyle: {
-        borderColor: 'green'
-      },
-      invalidStyle: {
-        borderColor: 'red'
-      }
-    }
+import { createStore } from 'redux'
+function counter(state = 0, action) {
+  switch (action.type) {
+  case 'INCREMENT':
+    return state + 1
+  case 'DECREMENT':
+    return state - 1
+  default:
+    return state
   }
 }
-addTechIfValid () {
-  this.state.TECH.length && this.state.DOCS.length
-  ? this.addLearn()
-  : console.log('You must insert data')
-}
-changeTECH (ev) {
-  this.setState({
-    TECH: ev.target.value
-  })
-}
-changeDOCS (ev) {
-  this.setState({
-    DOCS: ev.target.value
-  })
-}
-addLearn () {
-  this.state.learnList.push({
-    tech: this.state.TECH,
-    docs: <a target="_blank" href={this.state.DOCS}>{this.state.DOCS}</a>
-  })
-  this.setState({
-    learnList: this.state.learnList,
-    TECH: '',
-    DOCS: ''
-  })
-}
-removeTeching (tech) {
-  this.setState({
-    learnList: this.state.learnList.filter(function (link) {
-      return link.tech !== tech
-    })
-  })
-}
-  render() {
-    return (
-       <div>
-         <h1>ILearn</h1>
-         <LearnForm
-         addTechIfValid={this.addTechIfValid.bind(this)}
-         changeTECH = {this.changeTECH.bind(this)}
-         changeDOCS = {this.changeDOCS.bind(this)}
-         TECH = {this.state.TECH}
-         DOCS = {this.state.DOCS}
-         buttonStyle = {this.state.buttonStyle}
-         inputStyle = {this.state.inputStyle}
-         />
-         <LearnTable
-          learnList={this.state.learnList}
-          onRemove = {this.removeTeching.bind(this)}
-          />
-       </div>
-    )
-  }
-}
+let store = createStore(counter)
+store.subscribe(() =>
+  console.log("state",store.getState())
+)
 
+// The only way to mutate the internal state is to dispatch an action.
+// The actions can be serialized, logged or stored and later replayed.
+store.dispatch({ type: 'INCREMENT' })
+// 1
+store.dispatch({ type: 'INCREMENT' })
+// 2
+store.dispatch({ type: 'DECREMENT' })
+// 1
 render(
   <Main />,
   document.getElementById('hello-world')

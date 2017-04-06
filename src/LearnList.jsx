@@ -1,5 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
+import '../public/css/style.css'
 const Learn = (props) =>{
   const knowledge = props.learnList.map(function (link) {
   return(

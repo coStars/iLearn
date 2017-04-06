@@ -1,6 +1,5 @@
 import React from 'react'
-import LearnList  from './LearnList.js';
-import '../public/css/style.css'
+import LearnList  from './LearnList.jsx';
 const LearnTable = (props)=>{
   console.log(props.learnList.length)
 return(

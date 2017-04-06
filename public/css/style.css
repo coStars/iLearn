@@ -4,9 +4,6 @@
   box-shadow: inset 1px 1px 2px 0 #707070;
   transition: box-shadow 0.3s;
 }*/
-#hello-world{
-  
-}
 table, td, th {
     border: 1px solid #ddd;
     text-align: left;
@@ -30,6 +27,7 @@ input {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
+  border: 1px solid black;
 }
 .btn-default {
   border-radius: 8px;
