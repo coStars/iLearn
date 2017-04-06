@@ -1,5 +1,5 @@
 import React from 'react'
-import Learn  from './Learn.js';
+import LearnList  from './LearnList.js';
 import '../public/css/style.css'
 const LearnTable = (props)=>{
   console.log(props.learnList.length)
@@ -9,10 +9,10 @@ return(
         <tr>
            <th>TECH</th>
            <th>DOCS</th>
-           <th></th>
+           <th>DELET</th>
         </tr>
       </thead>
-        <Learn
+        <LearnList
         key={props.learnList.length}
         learnList = {props.learnList}
         onRemove = {props.onRemove}

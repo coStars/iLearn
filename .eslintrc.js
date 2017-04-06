@@ -1,29 +1,30 @@
 module.exports = {
     "env": {
-        "browser": true,
+        "shared-node-browser": true,
         "commonjs": true,
         "es6": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "sourceType": "module"
+        "sourceType": "module",
+        "parserOptions": {
+          "ecmaFeatures": {
+            "jsx": false
+          }
+        }
     },
     "rules": {
         "indent": [
             "error",
             2
         ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
         "quotes": [
             "error",
             "single"
-        ],
-        "semi": [
-            "error",
-            "never"
         ]
-    }
+    },
+    "plugins": [
+      "react",
+      "standard"
+    ]
 };

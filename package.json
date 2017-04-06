@@ -4,11 +4,11 @@
   "description": "Alaa&Ghada",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "watch": "webpack -w",
     "start": "node server.js"
   },
+  "pre-commit": ["lint"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -21,12 +21,12 @@
     "css-loader": "^0.28.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^7.1.0",
-    "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^2.1.1",
     "handlebars": "^4.0.6",
     "hapi": "^16.1.1",
     "inert": "^4.2.0",
+    "pre-commit": "^1.2.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "style-loader": "^0.16.1",
