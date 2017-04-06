@@ -6,9 +6,10 @@
   "scripts": {
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "watch": "webpack -w",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "echo \"Error: I SHOULD FAIL LOLOLOLOLOL \" && exit 1"
   },
-  "pre-commit": ["lint"],
+  "pre-commit": ["lint","test"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
