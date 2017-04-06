@@ -9,7 +9,7 @@ const Learn = (props) =>{
       {link.tech}
     </td>
     <td>
-      {link.docs}
+      <a href={link.docs}>{link.docs}</a>
     </td>
     <td>
       <button
