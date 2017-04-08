@@ -6,6 +6,9 @@ const Learn = (props) =>{
   return(
   <tr>
     <td>
+      {link.id}
+    </td>
+    <td>
       {link.tech}
     </td>
     <td>
@@ -15,7 +18,7 @@ const Learn = (props) =>{
       <button
         type='button'
         className='close'
-        onClick={ _ => props.onRemove(link.tech)}
+        onClick={ _ => props.onRemove(link.id)}
       >
         <span>&times;</span>
       </button>
