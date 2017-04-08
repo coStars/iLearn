@@ -1,51 +1,66 @@
 import React from 'react'
-import '../public/css/style.css'
-const LearnForm = (props)=>{
-  const buttonStyle = props.TECH.length && props.DOCS.length
-      ? props.buttonStyle.validStyle
-      : props.buttonStyle.invalidStyle
+import style from '../public/css/style.css'
+import store from './reducer.js'
+class LearnForm extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            TECH: '',
+            DOCS: '',
+            ID: 1
+        }
+    }
+    addTechIfValid() {
+        if (this.state.TECH.length && this.state.DOCS.length) {
+            this.setState({
+                ID: this.state.ID + 1
+            })
+            store.dispatch({
+                type: 'ADD',
+                payload: {
+                    tech: this.state.TECH,
+                    docs: this.state.DOCS,
+                    id: this.state.ID
+                }
+            })
+            this.setState({TECH: '', DOCS: ''})
+        } else {
+            console.log('You must insert data')
+        }
+    }
+    changeTECH(ev) {
+        this.setState({TECH: ev.target.value})
+    }
+    changeDOCS(ev) {
+        this.setState({DOCS: ev.target.value})
+    }
+    render() {
+        const buttonStyle = this.state.TECH.length && this.state.DOCS.length
+            ? 'valid-button'
+            : 'invalid-button'
 
-      const inputStyle = props.TECH.length && props.DOCS.length
-      ? props.inputStyle.validStyle
-      : props.inputStyle.invalidStyle
-return(
-  <div>
-    <div>
-      <div className='form-group'>
-        <label>TECH</label>
-        <input
-          value={props.TECH}
-          onChange={props.changeTECH}
-          placeholder='teching'
-          type='text'
-          className='form-control'
-          id='tech'
-          style={inputStyle}
-        />
-      </div>
-      <div className='form-group'>
-        <label>DOCS</label>
-        <input
-          value={props.DOCS}
-          onChange={props.changeDOCS}
-          placeholder='link'
-          type='text'
-          className='form-control'
-          id='docs'
-          style={inputStyle}
-        />
-      </div>
-      <div className='form-group'>
-        <button
-          className='btn-default'
-          onClick={props.addTechIfValid}
-          style={buttonStyle}
-        >
-          Add
-        </button>
-      </div>
-    </div>
-  </div>
-)
+        const inputStyle = this.state.TECH.length && this.state.DOCS.length
+            ? 'valid-input'
+            : 'invalid-input'
+        return (
+            <div>
+                <div>
+                    <div className='form-group'>
+                        <label>TECH</label>
+                        <input value={this.state.TECH} onChange={this.changeTECH.bind(this)} placeholder='teching' type='text' className={inputStyle} id='tech'/>
+                    </div>
+                    <div className='form-group'>
+                        <label>DOCS</label>
+                        <input value={this.state.DOCS} onChange={this.changeDOCS.bind(this)} placeholder='link' type='text' className={inputStyle} id='docs'/>
+                    </div>
+                    <div className='form-group'>
+                        <button className='btn-default' onClick={this.addTechIfValid.bind(this)} id={buttonStyle}>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
 export default LearnForm

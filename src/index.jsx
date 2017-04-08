@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import store from './reducer.js'
 const render = ()=>ReactDOM.render(
-  <Main data={store.getState()} />,
+  <Main data={store.getState().techs} />,
   document.getElementById('hello-world')
 );
 render()

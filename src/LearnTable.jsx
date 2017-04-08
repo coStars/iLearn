@@ -5,6 +5,7 @@ return(
     <table className='table table-condensed'>
       <thead>
         <tr>
+          <th>ID</th>
            <th>TECH</th>
            <th>DOCS</th>
            <th>DELET</th>
