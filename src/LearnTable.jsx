@@ -12,7 +12,6 @@ return(
         </tr>
       </thead>
         <LearnList
-        key={props.learnList.length}
         learnList = {props.learnList}
         onRemove = {props.onRemove}
         />

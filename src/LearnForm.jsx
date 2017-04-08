@@ -1,6 +1,5 @@
 import React from 'react'
 import style from '../public/css/style.css'
-import store from './reducer.js'
 class LearnForm extends React.Component {
     constructor(props) {
         super(props)
@@ -15,7 +14,8 @@ class LearnForm extends React.Component {
             this.setState({
                 ID: this.state.ID + 1
             })
-            store.dispatch({
+            console.log("this.state.ID",this.state.ID);
+            this.props.store.dispatch({
                 type: 'ADD',
                 payload: {
                     tech: this.state.TECH,
