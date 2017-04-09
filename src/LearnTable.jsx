@@ -13,7 +13,9 @@ return(
       </thead>
         <LearnList
         learnList = {props.learnList}
-        onRemove = {props.onRemove}
+        onRemove = {
+          props.onRemove
+        }
         />
     </table>
 )

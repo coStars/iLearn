@@ -6,23 +6,13 @@ class LearnForm extends React.Component {
         this.state = {
             TECH: '',
             DOCS: '',
-            ID: 1
+            ID: 0
         }
     }
     addTechIfValid() {
         if (this.state.TECH.length && this.state.DOCS.length) {
-            this.setState({
-                ID: this.state.ID + 1
-            })
-            console.log("this.state.ID",this.state.ID);
-            this.props.store.dispatch({
-                type: 'ADD',
-                payload: {
-                    tech: this.state.TECH,
-                    docs: this.state.DOCS,
-                    id: this.state.ID
-                }
-            })
+            const newId = this.state.ID + 1
+            this.props.addTech(Object.assign(this.state,{ ID: newId }))
             this.setState({TECH: '', DOCS: ''})
         } else {
             console.log('You must insert data')
