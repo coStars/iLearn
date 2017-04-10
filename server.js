@@ -19,6 +19,20 @@ server.register(inert, (err) => {
     }
   })
   server.route({
+    method: 'POST',
+    path: '/data',
+    handler: (request, reply) => {
+      reply(request.payload)
+    }
+  })
+  server.route({
+    method: 'GET',
+    path: '/test',
+    handler: (request, reply) => {
+      reply('alaa')
+    }
+  })
+  server.route({
     method: 'GET',
     path: '/public/{file*}',
     handler: {

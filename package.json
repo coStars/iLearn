@@ -8,6 +8,7 @@
     "test:watch": "jest --watch",
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "watch": "webpack -w",
+    "watch:server": "nodemon -x 'npm start'",
     "start": "node server.js"
   },
   "pre-commit": [
