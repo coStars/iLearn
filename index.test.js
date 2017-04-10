@@ -1,5 +1,4 @@
-import react from 'react'
-import { techsReducer } from "./src/reducer.js";
+import { techsReducer } from './src/reducer.js';
 const initialState = [];
 const payload = {tech:'test',docs:'test',ID:1};
 const add = {
