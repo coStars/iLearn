@@ -3,10 +3,16 @@
 const Hapi = require('hapi')
 const inert = require('inert')
 const server = new Hapi.Server()
-
+const data = require('./database/utiles.db.js');
 server.connection({
   port: 3000
 })
+data.createTable((err, res)=>{ // eslint-disable-line
+  if (err) {
+    throw err;
+  }
+    // console.log('res',res);
+});
 server.register(inert, (err) => {
   if (err) {
     throw err
@@ -22,7 +28,9 @@ server.register(inert, (err) => {
     method: 'POST',
     path: '/data',
     handler: (request, reply) => {
-      reply(request.payload)
+      data.add(request.payload,(err)=>{
+        reply(request.payload);
+      })
     }
   })
   server.route({
