@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import store from './store.js'
 const newPost = (data)=>{
   fetch('/data',{
