@@ -1,19 +1,20 @@
 import React from 'react'
 import style from '../public/css/style.css'
+import {getAll} from './fetch.js'
+
 class LearnForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             TECH: '',
-            DOCS: '',
-            ID: 0
+            DOCS: ''
         }
     }
     addTechIfValid() {
         if (this.state.TECH.length && this.state.DOCS.length) {
-            const newId = this.state.ID + 1
-            this.props.addTech(Object.assign(this.state, {ID: newId}))
+            this.props.addTech(this.state)
             this.setState({TECH: '', DOCS: ''})
+            getAll()
         } else {
             console.log('You must insert data')
         }
