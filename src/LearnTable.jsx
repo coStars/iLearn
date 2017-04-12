@@ -8,7 +8,7 @@ return(
           <th>ID</th>
            <th>TECH</th>
            <th>DOCS</th>
-           <th>DELET</th>
+           <th>EDIT & DELET</th>
         </tr>
       </thead>
         <LearnList

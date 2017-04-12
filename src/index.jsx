@@ -10,11 +10,13 @@ const render = ()=>ReactDOM.render(
       <h1>ILearn</h1>
       <LearnForm addTech={tech=>newPost(tech)}/>
       <LearnTable learnList={store.getState().techs}
-      onRemove={id => deleteItem(id)}/>
+      onRemove={id => deleteItem(id)}
+      />
   </div>,
   document.getElementById('hello-world')
 );
-
 getAll()
 render()
 store.subscribe(render)
+
+export default render
