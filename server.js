@@ -51,7 +51,6 @@ server.register(inert, (err) => {
       var id = encodeURIComponent(request.params.id);
       data.deleteById(id,(err)=>{
         if(err){
-          console.log('error delete');
           reply([{error : 'error'}]);
         }
         data.select((err,result)=>{
