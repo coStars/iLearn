@@ -66,3 +66,15 @@ body{
 h1{
   margin: 22px 170px;
 }
+
+table button{
+  margin-right: 10px;
+}
+.update-from .btn-default{
+  display: inline-block;
+  margin: 0;
+  margin-right: 10px;
+}
+.update-from .btn-default:first-of-type{
+  margin-left: 110px;
+}

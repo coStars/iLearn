@@ -1,13 +1,14 @@
 import React from 'react'
-import style from '../public/css/style.css'
-import {getAll} from './fetch.js'
+import ReactDOM  from 'react-dom'
+import Update from './UpdateData.jsx'
+import Display from './index.jsx'
 
-class LearnForm extends React.Component {
+class UpdateForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            tech: '',
-            docs: ''
+            tech: this.props.newData.tech,
+            docs: this.props.newData.docs
         }
     }
     addTechIfValid() {
@@ -36,18 +37,22 @@ class LearnForm extends React.Component {
             : 'invalid-input'
         return (
             <div>
-                <div>
+              <h1>Update Data</h1>
+                <div className='update-from'>
                     <div className='form-group'>
                         <label>TECH</label>
                         <input value={this.state.tech} onChange={this.changeTECH.bind(this)} placeholder='teching' type='text' className={inputStyle} id='tech'/>
                     </div>
                     <div className='form-group'>
                         <label>DOCS</label>
-                        <input value={this.state.docs} onChange={this.changeDOCS.bind(this)} placeholder='link' type='text' className={inputStyle} id='docs'/>
+                        <input value={this.state.docs} onChange={this.changeDOCS.bind(this)} placeholder={this.props.newData.docs} type='text' className={inputStyle} id='docs'/>
                     </div>
                     <div className='form-group'>
-                        <button className='btn-default' onClick={this.addTechIfValid.bind(this)} id={buttonStyle}>
-                            Add
+                        <button className='btn-default' onClick={()=>Update(Object.assign(this.props.newData, this.state))} id={buttonStyle}>
+                            Update
+                        </button>
+                        <button className='btn-default' onClick={Display} id={buttonStyle}>
+                            Cancle
                         </button>
                     </div>
                 </div>
@@ -55,4 +60,10 @@ class LearnForm extends React.Component {
         )
     }
 }
-export default LearnForm
+function update(props) {
+ReactDOM.render(
+  <UpdateForm newData={props}/>,
+  document.getElementById('hello-world')
+)
+};
+export default update

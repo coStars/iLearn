@@ -29,9 +29,15 @@ server.register(inert, (err) => {
     handler: (request, reply) => {
       data.add(request.payload,(err)=>{
         reply(request.payload)
-        // data.select((err,result)=>{
-        //   reply(result)
-        // })
+      })
+    }
+  })
+  server.route({
+    method: 'POST',
+    path: '/update',
+    handler: (request, reply) => {
+      data.updateById(request.payload,(err)=>{
+        reply(request.payload)
       })
     }
   })
