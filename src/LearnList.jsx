@@ -3,23 +3,22 @@ import {render} from 'react-dom'
 import '../public/css/style.css'
 const Learn = (props) =>{
   const knowledge = props.learnList.map(function (link) {
-  console.log("link ",link.ID)
   return(
   <tr>
     <td>
-      {link.ID}
+      {link.id}
     </td>
     <td>
-      {link.TECH}
+      {link.tech}
     </td>
     <td>
-      <a href={link.DOCS}>{link.DOCS}</a>
+      <a href={link.docs}>{link.docs}</a>
     </td>
     <td>
       <button
         type='button'
         className='close'
-        onClick={ _ => props.onRemove(link.ID) }
+        onClick={ _ => props.onRemove(link.id) }
       >
         <span>&times;</span>
       </button>

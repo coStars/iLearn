@@ -7,11 +7,10 @@ const data = require('./database/utiles.db.js');
 server.connection({
   port: 3000
 })
-data.createTable((err, res)=>{ // eslint-disable-line
+data.createTable((err, res)=>{
   if (err) {
     throw err;
   }
-    // console.log('res',res);
 });
 server.register(inert, (err) => {
   if (err) {
@@ -29,15 +28,35 @@ server.register(inert, (err) => {
     path: '/data',
     handler: (request, reply) => {
       data.add(request.payload,(err)=>{
-        reply(request.payload);
+        reply(request.payload)
+        // data.select((err,result)=>{
+        //   reply(result)
+        // })
       })
     }
   })
   server.route({
     method: 'GET',
-    path: '/test',
+    path: '/data',
     handler: (request, reply) => {
-      reply('alaa')
+      data.select((err,result)=>{
+        reply(result)
+      })
+    }
+  })
+  server.route({
+    method: 'DELETE',
+    path: '/delete/{id}',
+    handler: (request, reply) => {
+      var id = encodeURIComponent(request.params.id);
+      data.deleteById(id,(err)=>{
+        if(err){
+          reply([{error : 'error'}]);
+        }
+        data.select((err,result)=>{
+          reply(result);
+        });
+      });
     }
   })
   server.route({

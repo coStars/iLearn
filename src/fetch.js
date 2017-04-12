@@ -10,8 +10,31 @@ const newPost = (data)=>{
     return  res.json()
   })
 .then((response)=>{
-  store.dispatch({type:'FETCH_POSTS_SUCCESS',payload:response})
+    //store.dispatch({type:'FETCH_POSTS_SUCCESS',payload:response})
 }).catch((err) =>{
+  console.log('error',err);
   store.dispatch({type:'FETCH_POSTS_FAILURE'})
 })}
-export {newPost}
+
+const getAll = ()=> {
+    fetch('/data',{method:'GET'})
+    .then(res => res.json())
+    .then((result) => {
+      store.getState().techs = []
+        store.dispatch({type: 'FETCH_POSTS_SUCCESS', payload: result});
+    }).catch(() => {
+    });
+
+};
+const deleteItem = (id)=> {
+    const url = '/delete/'+`${id}`;
+    fetch(url,{method:'DELETE'})
+    .then(res => res.json())
+    .then((result) => {
+      store.getState().techs = []
+        store.dispatch({type: 'FETCH_POSTS_SUCCESS', payload: result});
+    }).catch(() => {
+    });
+
+};
+export {newPost,getAll,deleteItem}
