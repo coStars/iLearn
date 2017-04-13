@@ -41,11 +41,11 @@ class UpdateForm extends React.Component {
                 <div className='update-from'>
                     <div className='form-group'>
                         <label>TECH</label>
-                        <input value={this.state.tech} onChange={this.changeTECH.bind(this)} placeholder='teching' type='text' className={inputStyle} id='tech'/>
+                        <input value={this.state.tech} onChange={this.changeTECH.bind(this)} placeholder='teching' type='text' className={inputStyle} />
                     </div>
                     <div className='form-group'>
                         <label>DOCS</label>
-                        <input value={this.state.docs} onChange={this.changeDOCS.bind(this)} placeholder={this.props.newData.docs} type='text' className={inputStyle} id='docs'/>
+                        <input value={this.state.docs} onChange={this.changeDOCS.bind(this)} placeholder={this.props.newData.docs} type='text' className={inputStyle} />
                     </div>
                     <div className='form-group'>
                         <button className='btn-default' onClick={()=>Update(Object.assign(this.props.newData, this.state))} id={buttonStyle}>
