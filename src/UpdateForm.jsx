@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM  from 'react-dom'
-import Update from './UpdateData.jsx'
+import Update from './UpdateData.js'
 import Display from './index.jsx'
 
 class UpdateForm extends React.Component {
