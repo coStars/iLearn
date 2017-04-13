@@ -16,7 +16,7 @@ class LearnForm extends React.Component {
             this.setState({tech: '', docs: ''})
             getAll()
         } else {
-            console.log('You must insert data')
+            alert ('You must insert data')
         }
     }
 
@@ -31,7 +31,10 @@ class LearnForm extends React.Component {
             ? 'valid-button'
             : 'invalid-button'
 
-        const inputStyle = this.state.tech.length && this.state.docs.length
+        const inputStyle1 = this.state.tech.length > 0
+            ? 'valid-input'
+            : 'invalid-input'
+        const inputStyle2 =  this.state.docs.length > 0
             ? 'valid-input'
             : 'invalid-input'
         return (
@@ -39,14 +42,30 @@ class LearnForm extends React.Component {
                 <div>
                     <div className='form-group'>
                         <label>TECH</label>
-                        <input value={this.state.tech} onChange={this.changeTECH.bind(this)} placeholder='teching' type='text' className={inputStyle} id='tech'/>
+                        <input
+                        value={this.state.tech}
+                        onChange={this.changeTECH.bind(this)}
+                        placeholder='teching'
+                        type='text'
+                        className={inputStyle1}
+                        />
                     </div>
                     <div className='form-group'>
                         <label>DOCS</label>
-                        <input value={this.state.docs} onChange={this.changeDOCS.bind(this)} placeholder='link' type='text' className={inputStyle} id='docs'/>
+                        <input
+                        value={this.state.docs}
+                        onChange={this.changeDOCS.bind(this)}
+                        placeholder='link'
+                        type='text'
+                        className={inputStyle2}
+                        />
                     </div>
                     <div className='form-group'>
-                        <button className='btn-default' onClick={this.addTechIfValid.bind(this)} id={buttonStyle}>
+                        <button
+                        className='btn-default'
+                        onClick={this.addTechIfValid.bind(this)}
+                        id={buttonStyle}
+                        >
                             Add
                         </button>
                     </div>

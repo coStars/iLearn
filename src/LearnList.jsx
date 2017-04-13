@@ -2,6 +2,7 @@ import React from 'react'
 import {render} from 'react-dom'
 import '../public/css/style.css'
 import update from './UpdateForm.jsx'
+<<<<<<< HEAD
 const Learn = (props) => {
     const knowledge = props.learnList.map(function(link) {
         return (

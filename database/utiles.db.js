@@ -1,7 +1,10 @@
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('testDB.db');
 function createTable(cb) {
-  db.run('CREATE TABLE  IF NOT EXISTS resources (id INTEGER PRIMARY KEY,tech TEXT,docs TEXT)', cb);
+  db.run(
+    'CREATE TABLE  IF NOT EXISTS resources(id INTEGER PRIMARY KEY,tech TEXT,docs TEXT)',
+     cb
+   );
 }
 function add(data,cb) {
   const {tech, docs} = JSON.parse(data);
