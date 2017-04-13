@@ -8,11 +8,9 @@ module.exports = {
   "extends": "eslint:recommended",
   "parserOptions": {
     "sourceType": "module",
-    "parserOptions": {
       "ecmaFeatures": {
         "jsx": true
       }
-    }
   },
   "rules": {
     "indent": [
