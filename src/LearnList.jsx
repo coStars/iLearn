@@ -5,8 +5,8 @@ import update from './UpdateForm.jsx'
 const Learn = (props) => {
     const knowledge = props.learnList.map(function(link) {
         return (
-            <tr>
-                <td >
+            <tr key={link.id}>
+                <td>
                     {link.id}
                 </td>
                 <td>
