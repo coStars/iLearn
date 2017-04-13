@@ -46,7 +46,7 @@ class LearnForm extends React.Component {
                     <label>TECH</label>
                     <input
                     value={this.state.tech}
-                  onChange={this.changeTECH.bind(this)}
+                    onChange={this.changeTECH.bind(this)}
                     placeholder='teching'
                     type='text'
                     className={inputStyle1}
@@ -56,7 +56,7 @@ class LearnForm extends React.Component {
                     <label>DOCS</label>
                     <input
                     value={this.state.docs}
-                  onChange={this.changeDOCS.bind(this)}
+                    onChange={this.changeDOCS.bind(this)}
                     placeholder='link'
                     type='text'
                     className={inputStyle2}

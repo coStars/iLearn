@@ -9,7 +9,8 @@
     "lint": "eslint ./ --cache --ignore-pattern .gitignore",
     "watch": "webpack -w",
     "watch:server": "nodemon -x 'npm start'",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build" : "webpack"
   },
   "pre-commit": [
     "lint"

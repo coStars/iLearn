@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM  from 'react-dom'
+import ReactDOM from 'react-dom'
 import Update from './UpdateData.js'
 import Display from './index.jsx'
 
@@ -29,29 +29,29 @@ class UpdateForm extends React.Component {
     }
     render() {
         const buttonStyle = this.state.tech.length && this.state.docs.length
-            ? 'valid-button'
-            : 'invalid-button'
+            ? 'valid-button btn-default'
+            : 'invalid-button btn-default'
 
         const inputStyle = this.state.tech.length && this.state.docs.length
             ? 'valid-input'
             : 'invalid-input'
         return (
             <div>
-              <h1>Update Data</h1>
+                <h1>Update Data</h1>
                 <div className='update-from'>
                     <div className='form-group'>
                         <label>TECH</label>
-                        <input value={this.state.tech} onChange={this.changeTECH.bind(this)} placeholder='teching' type='text' className={inputStyle} />
+                        <input value={this.state.tech} onChange={this.changeTECH.bind(this)} placeholder='teching' type='text' className={inputStyle}/>
                     </div>
                     <div className='form-group'>
                         <label>DOCS</label>
-                        <input value={this.state.docs} onChange={this.changeDOCS.bind(this)} placeholder={this.props.newData.docs} type='text' className={inputStyle} />
+                        <input value={this.state.docs} onChange={this.changeDOCS.bind(this)} placeholder={this.props.newData.docs} type='text' className={inputStyle}/>
                     </div>
                     <div className='form-group'>
-                        <button className='btn-default' onClick={()=>Update(Object.assign(this.props.newData, this.state))} id={buttonStyle}>
+                        <button className='btn-default' onClick={() => Update(Object.assign(this.props.newData, this.state))} id={buttonStyle}>
                             Update
                         </button>
-                        <button className='btn-default' onClick={Display} id={buttonStyle}>
+                        <button className='btn-default' onClick={Display}>
                             Cancle
                         </button>
                     </div>
@@ -61,9 +61,7 @@ class UpdateForm extends React.Component {
     }
 }
 function update(props) {
-ReactDOM.render(
-  <UpdateForm newData={props}/>,
-  document.getElementById('hello-world')
-)
+    ReactDOM.render(
+        <UpdateForm newData={props}/>, document.getElementById('hello-world'))
 };
 export default update

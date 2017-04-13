@@ -6,5 +6,5 @@
 
    * ``git clone`` the file.
    * ``npm i`` for package.json.
-   * ``npm run watch`` for webpack watch.
+   * ``npm run build``.
    * ``npm start`` to run the app.
