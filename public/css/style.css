@@ -51,11 +51,11 @@ label {
 .invalid-input{
   border-color: red
 }
-#valid-button{
+.valid-button{
   background-color: green;
   color: white;
 }
-#invalid-button{
+.invalid-button{
   background-color: red;
   color: white;
 }
