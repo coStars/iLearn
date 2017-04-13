@@ -3,7 +3,7 @@ import {render} from 'react-dom'
 import '../public/css/style.css'
 import update from './UpdateForm.jsx'
 const Learn = (props) =>{
-  const knowledge = props.learnList.map(function (link) {
+  const knowledge = props.learnList.map(link=>{
   return(
   <tr>
     <td>

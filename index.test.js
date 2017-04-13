@@ -7,7 +7,8 @@ const add = {
 }
 
 test('add test',()=>{
-  expect(techsReducer(initialState, add)).toEqual([ payload ]);
+  expect(techsReducer(initialState, add))
+  .toEqual([ payload ]);
 })
 
 test('remove test',()=>{

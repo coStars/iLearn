@@ -25,7 +25,9 @@ module.exports = {
     ],
     "no-unused-vars": ["error", {
       "args": "none"
-    }]
+    }
+  ],
+  "max-len": [2, 60, 4, {ignoreComments: true, ignoreUrls: true,ignoreStrings: true, ignorePattern: "^\\s*var\\s.+=\\s*require\\s*\\("}]
   },
   "plugins": [
     "react",
