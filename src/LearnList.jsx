@@ -6,7 +6,7 @@ const Learn = (props) => {
     const knowledge = props.learnList.map(function(link) {
         return (
             <tr>
-                <td>
+                <td >
                     {link.id}
                 </td>
                 <td>

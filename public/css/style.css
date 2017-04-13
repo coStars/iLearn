@@ -1,15 +1,19 @@
-
+h1{
+  text-align: center;
+}
 table, td, th {
     border: 1px solid #ddd;
     text-align: left;
 }
 
 table {
-    width: 125%;
-    margin: 22px -94px
+    width: 100%;
+    margin: 22px -0
 
 }
-
+.mainform{
+  padding-left: 100px;
+}
 th, td {
     border-bottom: 1px solid #ddd;
     font-size: 16px;
@@ -18,7 +22,7 @@ th, td {
 tr:nth-child(even) {background-color: #f2f2f2}
 
 input {
-  width: 50%;
+  width: 300px;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -33,7 +37,6 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 22px 205px 29px;
 }
 label {
   color: blue;
@@ -61,10 +64,9 @@ label {
 }
 body{
   background-color: #aab6ea;
-  margin: 33px 350px;
-}
-h1{
-  margin: 22px 170px;
+  margin: 33px auto;
+  max-width: 700px;
+  padding: 0 15px;
 }
 
 table button{
@@ -75,6 +77,56 @@ table button{
   margin: 0;
   margin-right: 10px;
 }
-.update-from .btn-default:first-of-type{
-  margin-left: 110px;
+.mainform .form-group:last-of-type{
+  text-align: center;
+  padding-right: 100px;
+}
+.update-from{
+  text-align: center;
+}
+.update-from .form-group:last-of-type{
+  padding-left: 100px;
+}
+@media (max-width: 767px){
+  .mainform{
+    padding-left: 0;
+    text-align: center;
+  }
+  .mainform label{
+    display: block;
+    text-align: center;
+  }
+  .mainform .form-group:last-of-type{
+    padding-right: 0;
+  }
+  .update-from .form-group:last-of-type{
+    padding-left: 0;
+  }
+  input{
+    width: 100%;
+  }
+  table thead th{
+    display: none;
+  }
+  table td{
+    display: block;
+    text-align: left;
+    padding: 10px;
+  }
+  table tr td:first-of-type:before{
+    content: 'ID: ';
+    font-weight: bold;
+  }
+  table tr td:nth-child(2):before{
+    content: 'Tech: ';
+    font-weight: bold;
+  }
+  table tr td:nth-child(3):before{
+    content: 'Docs: ';
+    font-weight: bold;
+  }
+  table tr td:last-of-type:before{
+    content: 'Edit & Delete: ';
+    font-weight: bold;
+  }
 }

@@ -38,7 +38,7 @@ class LearnForm extends React.Component {
             ? 'valid-input'
             : 'invalid-input'
         return (
-            <div>
+            <div className="mainform">
                 <div>
                     <div className='form-group'>
                         <label>TECH</label>
