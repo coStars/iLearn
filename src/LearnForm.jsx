@@ -48,7 +48,6 @@ class LearnForm extends React.Component {
                         placeholder='teching'
                         type='text'
                         className={inputStyle1}
-                        id='tech'
                         />
                     </div>
                     <div className='form-group'>
@@ -59,7 +58,6 @@ class LearnForm extends React.Component {
                         placeholder='link'
                         type='text'
                         className={inputStyle2}
-                        id='docs'
                         />
                     </div>
                     <div className='form-group'>
