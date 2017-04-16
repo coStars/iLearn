@@ -21,7 +21,7 @@ const getAll = ()=> {
       store.getState().techs = []
         store.dispatch({type: 'FETCH_POSTS_SUCCESS', payload: result});
     }).catch(() => {
-    });
+    })
 
 };
 const deleteItem = (id)=> {
