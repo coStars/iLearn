@@ -6,7 +6,7 @@ function techsReducer(state = [], action) {
   case 'FETCH_POSTS_FAILURE' :
     return state
   case 'FETCH_POSTS_SUCCESS' :
-    return state.concat(action.payload)
+    return action.payload
   default:
     return state
   }

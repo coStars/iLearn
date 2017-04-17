@@ -1,6 +1,7 @@
 import React from 'react'
 import LearnList  from './LearnList.jsx';
 const LearnTable = (props)=>{
+  console.log('table',props);
 return(
     <table className='table table-condensed'>
       <thead>
@@ -15,6 +16,9 @@ return(
         learnList = {props.learnList}
         onRemove = {
           props.onRemove
+        }
+        update ={
+          props.update
         }
         />
     </table>

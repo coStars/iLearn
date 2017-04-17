@@ -1,18 +1,21 @@
 
 import React from 'react'
+import {Provider} from 'react-redux'
 import ReactDOM from 'react-dom'
-import LearnForm from './LearnForm.jsx'
-import LearnTable from './LearnTable.jsx'
+// import LearnForm from './LearnForm.jsx'
+// import LearnTable from './LearnTable.jsx'
 import store from './store.js'
+import AddContainer from './container/AddContainer.js'
+import DisplyContainer from './container/DisplyContainer.js'
 import {getAll,newPost,deleteItem} from './fetch.js'
 const render = ()=>ReactDOM.render(
+<Provider store={store}>
   <div>
-      <h1>ILearn</h1>
-      <LearnForm addTech={tech=>newPost(tech)}/>
-      <LearnTable learnList={store.getState().techs}
-      onRemove={id => deleteItem(id)}
-      />
-  </div>,
+    <AddContainer/>
+    <DisplyContainer/>
+  </div>
+
+  </Provider>,
   document.getElementById('hello-world')
 );
 getAll()

@@ -1,8 +1,9 @@
 import React from 'react'
 import {render} from 'react-dom'
 import '../public/css/style.css'
-import update from './UpdateForm.jsx'
+// import update from './UpdateForm.jsx'
 const Learn = (props) => {
+  console.log('list',props);
     const knowledge = props.learnList.map(function(link) {
         return (
             <tr key={link.id}>
@@ -16,7 +17,7 @@ const Learn = (props) => {
                     <a href={link.docs}>{link.docs}</a>
                 </td>
                 <td>
-                    <button type='button' onClick={() => update(link)}>
+                    <button type='button' onClick={() => props.update(link)}>
                         Edit
                     </button>
                     <button type='button' className='close' onClick={() => props.onRemove(link.id)}>

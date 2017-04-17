@@ -7,7 +7,7 @@ const data = require('./database/utiles.db.js');
 server.connection({
   port: 3000
 })
-data.createTable((err, res)=>{
+data.createTable((err, res) => {
   if (err) {
     throw err;
   }
@@ -25,41 +25,56 @@ server.register(inert, (err) => {
   })
   server.route({
     method: 'POST',
-    path: '/data',
+    path: '/learn',
     handler: (request, reply) => {
-      data.add(request.payload,(err)=>{
-        reply(request.payload)
+      data.add(request.payload, (err) => {
+        if (err) {
+          reply([{
+            error: 'error'
+          }]);
+        }
+        data.select((err, result) => {
+          reply(result);
+        });
       })
     }
   })
   server.route({
-    method: 'POST',
-    path: '/update',
+    method: 'PUT',
+    path: '/learn',
     handler: (request, reply) => {
-      data.updateById(request.payload,(err)=>{
-        reply(request.payload)
+      data.updateById(request.payload, (err) => {
+        if (err) {
+          reply([{
+            error: 'error'
+          }]);
+        }
+        data.select((err, result) => {
+          reply(result);
+        });
       })
     }
   })
   server.route({
     method: 'GET',
-    path: '/data',
+    path: '/learn',
     handler: (request, reply) => {
-      data.select((err,result)=>{
+      data.select((err, result) => {
         reply(result)
       })
     }
   })
   server.route({
     method: 'DELETE',
-    path: '/delete/{id}',
+    path: '/learn/{id}',
     handler: (request, reply) => {
-      var id = encodeURIComponent(request.params.id);
-      data.deleteById(id,(err)=>{
-        if(err){
-          reply([{error : 'error'}]);
+      data.deleteById(request.params.id, (err) => {
+        if (err) {
+          return reply([{
+            error: 'error'
+          }]);
         }
-        data.select((err,result)=>{
+        data.select((err, result) => {
           reply(result);
         });
       });

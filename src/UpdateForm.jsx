@@ -1,25 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Update from './UpdateData.js'
+//import Update from './UpdateData.js'
 import Display from './index.jsx'
-import {getAll} from './fetch.js'
+import {getAll,dataUpdate} from './fetch.js'
 class UpdateForm extends React.Component {
   constructor(props) {
     super(props)
+    console.log('props',props);
     this.state = {
       tech: this.props.newData.tech,
       docs: this.props.newData.docs
     }
   }
-  addTechIfValid() {
-    if (this.state.tech.length && this.state.docs.length) {
-      this.props.addTech(this.state)
-      this.setState({tech: '', docs: ''})
-      getAll()
-    } else {
-        console.log('You must insert data')
-    }
-  }
+  // addTechIfValid() {
+  //   if (this.state.tech.length && this.state.docs.length) {
+  //     this.props.addTech(this.state)
+  //     this.setState({tech: '', docs: ''})
+  //     //getAll()
+  //   } else {
+  //       console.log('You must insert data')
+  //   }
+  // }
 
   changeTECH(ev) {
     this.setState({tech: ev.target.value})
@@ -66,7 +67,7 @@ class UpdateForm extends React.Component {
                         <button
                           className={buttonStyle}
                           onClick={
-                            ()=>Update(Object.assign(
+                            ()=>dataUpdate(Object.assign(
                               this.props.newData, this.state))
                           }
                         >
