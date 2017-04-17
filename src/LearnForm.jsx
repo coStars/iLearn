@@ -13,7 +13,7 @@ class LearnForm extends React.Component {
     if (this.state.tech.length && this.state.docs.length) {
       this.props.addTech(this.state)
       this.setState({tech: '', docs: ''})
-      getAll()
+      //getAll()
     } else {
        alert('You must insert data')
     }

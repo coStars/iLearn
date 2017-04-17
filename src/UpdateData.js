@@ -1,6 +1,5 @@
-  import {dataUpdate,getAll} from './fetch.js'
-  function updateData(data){
-    dataUpdate(data);
-    getAll()
-  }
-  export default updateData
+  // import {dataUpdate} from './fetch.js'
+  // function updateData(data){
+  //   dataUpdate(data);
+  // }
+  // export default updateData
